@@ -16,27 +16,92 @@
       <br>
       <h2>Sign Up</h2>
       <form id="sign-up">
-        <label>Email</label>
+        <label>Email:</label>
         <input name="credentials[email]" type="email">
-        <label>Password</label>
+        <label>Password:</label>
         <input name="credentials[password]" type="password">
-        <label>Password Confirmation</label>
+        <label>Password Confirmation:</label>
         <input name="credentials[password_confirmation]" type="password">
         <input type="submit" value="Sign Up">
       </form>
       <br>
+
       <h2>Sign In</h2>
       <form id="sign-in">
-        <label>Email</label>
+        <label>Email:</label>
         <input name="credentials[email]" type="email">
-        <label>Password</label>
+        <label>Password:</label>
         <input name="credentials[password]" type="password">
         <input type="submit" value="Sign In">
-
+        <br>  <br>
 
       </form>
       <button id="sign-out" type="Sign Out">Sign Out</button>
       <br> <br>
 
+      <form id="change-password">
+        <h3>Change Password</h3>
+        <label> Original Password:</label>
+        <input name="passwords[old]" type="password">
+        <label>New Password:</label>
+        <input name="passwords[new]" type="password">
+        <input type="submit" value="change password">
+
+        <br>
+        <br>
+        <br>
+
+        <div class="container">
+          <button id="create-car" type="submit" class="btn btn-primary">CREATE</button>
+          <button id="read-car" type="submit" class="btn btn-primary">READ</button>
+          <button id="update-car" type="submit" class="btn btn-primary">UPDATE</button>
+          <button id="delete-car" type="submit" class="btn btn-primary">DELETE</button>
+        </div>
+        <br>
+        <form id="Create">
+          <h3>Create Car.</h3>
+          <label> Brand:</label>
+          <input name="credentials[Brand]" type="text">
+          <label> Model:</label>
+          <input name="credentials[Model]" type="text">
+          <label>Resale Price:</label>
+          <input name="credentials[Price]" type="text">
+          <input type="submit" value="Create Shoe!">
+        </form>
+        <br>
+        <form id="Read">
+          <h3>Find a Car.</h3>
+          <label>Car ID:</label>
+          <input name="credential[ID]" type="text">
+          <input type="submit" value="Find Car!">
+        </form>
+        <br>
+        <form id="Update">
+          <h3>Update a Shoe.</h3>
+          <label>Shoe ID:</label>
+          <input name="credential[ID]" type="text">
+          <label> Brand:</label>
+          <input name="credentials[Brand]" type="text">
+          <label> Model:</label>
+          <input name="credentials[Model]" type="text">
+          <label>Resale Price:</label>
+          <input name="credentials[Price]" type="text">
+          <input type="submit" value="Update Car!">
+        </form>
+        <br>
+        <form id="Delete">
+          <h3>Delete a Shoe.</h3>
+          <label> Shoe ID:</label>
+          <input name="credentials[Id]" type="text">
+          <input type="submit" value="Delete Car!">
+        </form>
+
+        <br>
+
+        <br>
+        <div class="footer">
+          <p>By: Pablo Maldonado-Hernandez</p>
+        </div>
+      </form>
     </body>
 </html>

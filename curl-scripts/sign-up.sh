@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "https://tic-tac-toe-api-development.herokuapp.com/sign-up"
+curl "http://localhost:4741/sign-up" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
