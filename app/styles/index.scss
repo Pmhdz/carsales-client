@@ -1,11 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  background-color: white;
+  background-color:#ffffff
 }
 
 #message {
   text-align: center;
   position: relative;
   padding-bottom: 50;
+}
+
+#create {
+  background-color: red;
 }
