@@ -1,4 +1,5 @@
 const store = require('./store')
+
 const onSignUpSuccess = (response) => {
   $('#message').text(
     'Thank you for signing up! car Finder is glad to welcome you to the  sneaker community'
@@ -43,41 +44,48 @@ const onChangePasswordFailure = () => {
   $('#message').text('Password Change failure')
 }
 
-const onCreateCarSuccess = (res) => {
+const onCreateCarSuccess = function (res) {
   $('#create-car').trigger('reset')
-  $('#message').text('Create car was successful')
+  $('#messaging').text('Your car has been created!')
   store.car = res.car
   console.log(res)
 }
-const onCreateCarFailure = () => {
-  $('#message').text('Create car failure')
+
+const onCreateCarFailure = function () {
+  $('#messaging').text('Create car failure.')
 }
 
 const onReadCarSuccess = (res) => {
   $('#read-car').trigger('reset')
   $('#message').text('Read car was successful')
-  store.car = res.car
-}
-const onReadCarFailure = () => {
-  $('#message').text('Read car failure')
+  store.shoe = res.car
 }
 
-const onUpdateCarSuccess = (res) => {
-  $('#messaging').text('Your car has been')
+const onReadCarFailure = function () {
+  $('#messaging').text('Reading car has failed')
+}
+
+const onUpdateCarSuccess = function (res) {
+  $('#messaging').text('Your car has been updated')
   $('#update-car').trigger('reset')
+  console.log(res)
 }
 
-const onUpdateCarFailure = () => {
-  $('#message').text('Update car failure')
+const onUpdateCarFailure = function () {
+  $('#messaging').text('Update car failure')
 }
 
-const onDeleteCarSuccess = (res) => {
-  $('#message').text('Your car has been deleted')
+const onDeleteCarSuccess = function (res) {
+  $('#messaging').text('Please enter Car ID')
   $('#delete-car').trigger('reset')
+  console.log(res)
 }
-const onDeleteCarFailure = () => {
-  $('#message').text('Delete Car failure')
+
+const onDeleteCarFailure = function () {
+  $('#messaging').text('Delete car error')
+  $('#car-delete').trigger('reset')
 }
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,

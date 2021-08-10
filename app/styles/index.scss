@@ -1,15 +1,76 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  background-color:#ffffff
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  background-image: url('public/slider-bg.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+
+  margin: 0px 0px 75px 0px;
 }
 
-#message {
-  text-align: center;
-  position: relative;
-  padding-bottom: 50;
+header {
+  margin: 35px 0px 30px 0px;
 }
 
-#create {
-  background-color: red;
+h1 {
+  margin: auto;
+  color: rgb(255, 0, 0);
+  font-family: 'Poppins', serif;
+  font-size: 56px;
+  font-weight: 700;
+}
+
+h4 {
+  margin: 16px 0px 0px 0px;
+  color: rgb(80, 69, 175);
+}
+
+.card-subtitle {
+  color: rgb(80, 69, 175);
+}
+
+#after-sign-in {
+  margin: 0px 0px 36px 0px;
+}
+
+#sign-out {
+  background-color: rgb(252, 167,33);
+  color: white;
+}
+
+.btn {
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+}
+
+#messaging {
+  color: rgb(252, 167,33);
+  font-size: 18px;
+}
+
+label {
+  color: rgb(80, 69, 175);
+}
+
+.card-text {
+  color: rgb(80, 69, 175);
+}
+
+.no-show {
+  display: none;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(255, 0, 0);
+   color: white;
+   text-align: center;
+   padding-top: 10px;
 }

@@ -55,7 +55,15 @@ const createCar = function (data) {
 }
 
 // Show Car
-const showCars = function (data) {
+
+const readCar = function () {
+  return $.ajax({
+    url: config.apiUrl + '/cars',
+    method: 'GET'
+  })
+}
+
+const readCars = function (data) {
   return $.ajax({
     method: 'GET',
     data,
@@ -96,7 +104,9 @@ module.exports = {
   signOut,
   changePassword,
   createCar,
-  showCars,
+  readCar,
+  readCars,
+  // showCars,
   updateCar,
   deleteCar
 }

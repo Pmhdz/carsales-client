@@ -4,6 +4,7 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../lib/get-form-fields')
 // const store = require('./store')
+//  const { store } = require('./../store')
 
 // Sign Up
 const onSignUp = function (event) {
@@ -53,69 +54,58 @@ const onChangePassword = function (event) {
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordFailure)
 }
-
-const onAddCar = function (event) {
-  event.preventDefault()
-  ui.addCarSuccess()
-}
-
 const onCreateCar = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api
-    .createCar(data)
-    .then(ui.createCarSuccess)
-    .catch(ui.createCarFailure)
+    .createShoe(data)
+    .then(ui.onCreateShoeSuccess)
+    .catch(ui.onCreateShoeFailure)
 }
 
-const onShowCars = function (event) {
+const onReadCars = function (event) {
+  event.preventDefault()
+  api.readShoe.index()
+    .then(ui.onReadShoesSuccess)
+    .catch(ui.onReadShoesFailure)
+}
+
+const onReadCar = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.showCars(data)
-    .then(ui.showCarSuccess)
-    .catch(ui.showCarFailure)
+  api.readShoe(data)
+    .then(ui.onReadShoeSuccess)
+    .catch(ui.onReadShoeFailure)
 }
 
 const onUpdateCar = function (event) {
   event.preventDefault()
-  ui.updateCarSuccess()
-}
-
-const onCarUpdate = function (event) {
-  event.preventDefault()
-
   const data = getFormFields(event.target)
-  const id = data.car.id
+  const id = data.shoe.id
   api
-    .updateCar(data, id)
-    .then(ui.carUpdateSuccess)
-    .catch(ui.carUpdateFailure)
+    .updateShoe(data, id)
+    .then(ui.onUpdateShoeSuccess)
+    .catch(ui.onUpdateShoeFailure)
 }
 
 const onDeleteCar = function (event) {
   event.preventDefault()
-  ui.deleteCarSuccess()
-}
-
-const onCarDelete = function (event) {
-  event.preventDefault()
   const data = getFormFields(event.target)
   api
-    .deleteCar(data.car.id)
-    .then(ui.carDeleteSuccess)
-    .catch(ui.carDeleteFailure)
+    .deleteShoe(data.shoe.id)
+    .then(ui.onDeleteShoeSuccess)
+    .then(ui.onDeleteShoeFailure)
 }
-
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onChangePassword,
-  onAddCar,
+  onReadCar,
+  onReadCars,
   onCreateCar,
-  onShowCars,
+  // onShowCars,
   onUpdateCar,
-  onCarUpdate,
-  onDeleteCar,
-  onCarDelete
+  onDeleteCar
+
 }
