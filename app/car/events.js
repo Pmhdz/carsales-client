@@ -11,9 +11,9 @@ const onSignUp = function (event) {
   event.preventDefault()
   // get info from event and form
   const form = event.target
-  console.log(form)
+  // console.log(form)
   const data = getFormFields(form)
-  console.log(data)
+  // console.log(data)
   // make an api call using AJAX
   // handle successful api call with .then
   // handle failed api call with .catch
@@ -52,8 +52,7 @@ const onChangePassword = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  api
-    .changePassword(data)
+  api.changePassword(data)
     // make an api call using AJAX
     // handle successful api call with .then
     // handle failed api call with .catch
@@ -66,8 +65,7 @@ const onCreateCar = function (event) {
   // get info from event and form
   event.preventDefault()
   const data = getFormFields(event.target)
-  api
-    .createCar(data)
+  api.createCar(data)
     // make an api call using AJAX
     // handle successful api call with .then
     // handle failed api call with .catch
@@ -82,13 +80,46 @@ const onCreateCar = function (event) {
 const onReadCars = function (event) {
   // get info from event and form
   event.preventDefault()
-  api
-    .readCars()
+  api.readCars()
     // make an api call using AJAX
     // handle successful api call with .then
     // handle failed api call with .catch
     .then(ui.onReadCarsSuccess)
     .catch(ui.onReadCarsFailure)
+}
+
+// Update Car
+const onUpdateCar = function (event) {
+  // get info from event and form
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log(data)
+  const id = data.car.id
+  api.updateCar(id, data)
+    // make an api call using AJAX
+    // handle successful api call with .then
+    // handle failed api call with .catch
+    .then(api.readCars)
+    .then(ui.onReadCarsSuccess)
+    .catch(ui.onReadCarsFailure)
+    .then(ui.onUpdateCarSuccess)
+    .catch(ui.onUpdateCarFailure)
+}
+
+// Delete Car
+const onDeleteCar = function (event) {
+  // get info from event and form
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.deleteCar(data.car.id)
+    // make an api call using AJAX
+    // handle successful api call with .then
+    // handle failed api call with .catch
+    .then(api.readCars)
+    .then(ui.onReadCarsSuccess)
+    .catch(ui.onReadCarsFailure)
+    .then(ui.onDeleteCarSuccess)
+    .catch(ui.onDeleteCarFailure)
 }
 
 // Show Every Car That Is Available
@@ -120,43 +151,6 @@ const showForm = function (event) {
     $('#update-car').hide()
   }
 }
-
-// Update Car
-const onUpdateCar = function (event) {
-  // get info from event and form
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log(data)
-  const id = data.car.id
-  api
-    .updateCar(id, data)
-    // make an api call using AJAX
-    // handle successful api call with .then
-    // handle failed api call with .catch
-    .then(api.readCars)
-    .then(ui.onReadCarsSuccess)
-    .catch(ui.onReadCarsFailure)
-    .then(ui.onUpdateCarSuccess)
-    .catch(ui.onUpdateCarFailure)
-}
-
-// Delete Car
-const onDeleteCar = function (event) {
-  // get info from event and form
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  api
-    .deleteCar(data.car.id)
-    // make an api call using AJAX
-    // handle successful api call with .then
-    // handle failed api call with .catch
-    .then(api.readCars)
-    .then(ui.onReadCarsSuccess)
-    .catch(ui.onReadCarsFailure)
-    .then(ui.onDeleteCarSuccess)
-    .catch(ui.onDeleteCarFailure)
-}
-
 module.exports = {
   onSignUp,
   onSignIn,
@@ -164,10 +158,9 @@ module.exports = {
   onChangePassword,
   // onReadCar,
   onReadCars,
-  showForm,
   onCreateCar,
   // onShowCars,
   onUpdateCar,
-  onDeleteCar
-
+  onDeleteCar,
+  showForm
 }

@@ -27,7 +27,7 @@ $(() => {
 
   // Hide
   $('#sign-out').hide()
-  $('#change-password').hide()
+  // $('#change-password').hide()
   $('#create-car').hide()
   $('#read-car').hide()
   $('#update-car').hide()

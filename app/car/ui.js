@@ -7,9 +7,9 @@ const onSignUpSuccess = (response) => {
   $('#sign-up').trigger('reset')
   $('#sign-out').hide()
   $('#change-password').hide()
-  $('#change-password').show()
-  $('.btn').show()
-  $('#find').show()
+  // $('#change-password').show()
+  // $('.btn').show()
+  // $('#find').show()
 }
 const onSignUpFailure = () => {
   $('#message').text('Sign up failure')
@@ -23,6 +23,7 @@ const onSignInSuccess = (response) => {
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').show()
+  $('#change-password').show()
   $('#find').show()
   $('.btn').show()
 }
@@ -48,8 +49,8 @@ const onSignOutFailure = () => {
   $('#message').text('Sign out failure')
 }
 const onChangePasswordSuccess = () => {
-  $('#change-password').trigger('reset')
   $('#message').text('Password has been changed!')
+  $('#change-password').trigger('reset')
 }
 const onChangePasswordFailure = () => {
   $('#message').text('Password change failure')
