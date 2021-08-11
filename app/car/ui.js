@@ -71,7 +71,8 @@ const onReadCarsSuccess = (response) => {
   $('#message').text('Showing the cars has been Success')
   // look through shoes to look at each index
   const carsHtml = cars.map((car) => {
-    // create html to display each individual shoe
+    // we need an HTML String to show ours cars that are available.
+    // listing
     const htmlString = `
       <li>
       id: ${car._id}

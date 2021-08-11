@@ -40,25 +40,37 @@ const onSignIn = function (event) {
 // Sign Out
 const onSignOut = function (event) {
   api.signOut()
+    // handle successful api call with .then
+    // handle failed api call with .catch
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
 }
 
 // Change Password
 const onChangePassword = function (event) {
+  // get info from event and form
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  api.changePassword(data)
+  api
+    .changePassword(data)
+    // make an api call using AJAX
+    // handle successful api call with .then
+    // handle failed api call with .catch
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordFailure)
 }
 
 // Create Car
 const onCreateCar = function (event) {
+  // get info from event and form
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.createCar(data)
+  api
+    .createCar(data)
+    // make an api call using AJAX
+    // handle successful api call with .then
+    // handle failed api call with .catch
     .then(api.readCars)
     .then(ui.onReadCarsSuccess)
     .catch(ui.onReadCarsFailure)
@@ -68,8 +80,13 @@ const onCreateCar = function (event) {
 
 // Read Car
 const onReadCars = function (event) {
+  // get info from event and form
   event.preventDefault()
-  api.readCars()
+  api
+    .readCars()
+    // make an api call using AJAX
+    // handle successful api call with .then
+    // handle failed api call with .catch
     .then(ui.onReadCarsSuccess)
     .catch(ui.onReadCarsFailure)
 }
@@ -77,6 +94,7 @@ const onReadCars = function (event) {
 // Show Every Car That Is Available
 const showForm = function (event) {
   const btnId = $(event.target).attr('id')
+  // === is strict quality
   if (btnId === 'create') {
     $('#create-car').show()
     $('#read-car').hide()
@@ -105,11 +123,16 @@ const showForm = function (event) {
 
 // Update Car
 const onUpdateCar = function (event) {
+  // get info from event and form
   event.preventDefault()
   const data = getFormFields(event.target)
   console.log(data)
   const id = data.car.id
-  api.updateCar(id, data)
+  api
+    .updateCar(id, data)
+    // make an api call using AJAX
+    // handle successful api call with .then
+    // handle failed api call with .catch
     .then(api.readCars)
     .then(ui.onReadCarsSuccess)
     .catch(ui.onReadCarsFailure)
@@ -119,9 +142,14 @@ const onUpdateCar = function (event) {
 
 // Delete Car
 const onDeleteCar = function (event) {
+  // get info from event and form
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.deleteCar(data.car.id)
+  api
+    .deleteCar(data.car.id)
+    // make an api call using AJAX
+    // handle successful api call with .then
+    // handle failed api call with .catch
     .then(api.readCars)
     .then(ui.onReadCarsSuccess)
     .catch(ui.onReadCarsFailure)
