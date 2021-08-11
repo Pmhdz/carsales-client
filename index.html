@@ -12,32 +12,45 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Pablo's Car sales!</h1>
-      <br>
-      <h2>Sign Up</h2>
-      <form id="sign-up">
-        <label>Email:</label>
-        <input name="credentials[email]" type="email">
-        <label>Password:</label>
-        <input name="credentials[password]" type="password">
-        <label>Password Confirmation:</label>
-        <input name="credentials[password_confirmation]" type="password">
-        <input type="submit" value="Sign Up">
-      </form>
-      <br>
 
-      <h2>Sign In</h2>
-      <form id="sign-in">
-        <label>Email:</label>
-        <input name="credentials[email]" type="email">
-        <label>Password:</label>
-        <input name="credentials[password]" type="password">
-        <input type="submit" value="Sign In">
-        <br>  <br>
-
-      </form>
-      <button id="sign-out" type="Sign Out">Sign Out</button>
-      <br> <br>
+      <h1>Pablo's Car Sales!</h1>
+      <br>
+        <h2> The Secret World of Cars </h2>
+        <div id="message"></div>
+        <br>
+        <div class="register-login">
+          <form id="sign-up">
+            <h3>Register an account</h3>
+            <div class="mb-3">
+              <label class="form-label"> Email:</label>
+              <input class="form-control" name="credentials[email]" type="email">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password:</label>
+              <input class="form-control" name="credentials[password]" type="password">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password Confirmation:</label>
+              <input class="form-control" name="credentials[password_confirmation]" type="password">
+              <input class="form-control" type="submit" value="Sign up">
+            </div>
+          </form>
+          <form id="sign-in">
+            <h3>Log into your personal account</h3>
+            <div class="mb-3">
+              <label class="form-label"> Email:</label>
+              <input class="form-control" name="credentials[email]" type="email">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password:</label>
+              <input class="form-control" name="credentials[password]" type="password">
+              <input class="form-control" type="submit" value="Sign In">
+            </div>
+          </form>
+          <br>
+          </div>
+          <button id="sign-out">Sign Out</button>
+          <br>
 
       <form id="change-password">
         <h3>Change Password</h3>
@@ -46,62 +59,65 @@
         <label>New Password:</label>
         <input name="passwords[new]" type="password">
         <input type="submit" value="change password">
+      </form>
 
         <br>
         <br>
         <br>
 
         <div class="container">
-          <button id="create-car" type="submit" class="btn btn-dark">CREATE</button>
-          <button id="read-car" type="submit" class="btn btn-dark">READ</button>
-          <button id="update-car" type="submit" class="btn btn-dark">UPDATE</button>
-          <button id="delete-car" type="submit" class="btn btn-dark">DELETE</button>
+          <button id="create" type="submit" class="btn btn-dark">CREATE</button>
+          <button id="read" type="submit" class="btn btn-dark">READ</button>
+          <button id="update" type="submit" class="btn btn-dark">UPDATE</button>
+          <button id="delete" type="submit" class="btn btn-dark">DELETE</button>
         </div>
         <br>
-        <form id="Create">
-          <h3>Create Car.</h3>
+
+        <form id= "create-car" class= "form">
+          <h3>Create Car!</h3>
           <label> Brand:</label>
-          <input name="credentials[Brand]" type="text">
+          <input name="car[brand]" type="text">
           <label> Model:</label>
-          <input name="credentials[Model]" type="text">
+          <input name="car[model]" type="text">
           <label> Price:</label>
-          <input name="credentials[Price]" type="text">
+          <input name="car[price]" type="text">
           <input type="submit" value="Create Car!">
         </form>
         <br>
-        <form id="Read">
-          <h3>Find a Car.</h3>
+          <div id="find">
+            <h3>Find all cars in the inventory.</h3>
+            <label>Click here</label>
+            <input type="button" id="read-cars" value="Find Car!">
+          </div>
+          <br>
+        <form id="update-car" class= "form">
+          <h3>Update Car!</h3>
           <label>Car ID:</label>
-          <input name="credential[ID]" type="text">
-          <input type="submit" value="Find Car!">
-        </form>
-        <br>
-        <form id="Update">
-          <h3>Update Car.</h3>
-          <label>Car ID:</label>
-          <input name="credential[ID]" type="text">
+          <input name="car[id]" type="text">
           <label> Brand:</label>
-          <input name="credentials[Brand]" type="text">
+          <input name="car[brand]" type="text">
           <label> Model:</label>
-          <input name="credentials[Model]" type="text">
+          <input name="car[model]" type="text">
           <label> Price:</label>
-          <input name="credentials[Price]" type="text">
+          <input name="car[price]" type="text">
           <input type="submit" value="Update Car!">
         </form>
         <br>
-        <form id="Delete">
-          <h3>Delete a Car.</h3>
+        <form id="delete-car" class= "form">
+          <h3>Delete a Car!</h3>
           <label> Car ID:</label>
-          <input name="credentials[Id]" type="text">
+          <input name="car[id]" type="text">
           <input type="submit" value="Delete Car!">
         </form>
 
         <br>
-
         <br>
+      <ul id="car_list"></ul>
+      <br>
+      <br>
+      <br>
         <div class="footer">
-          <p>By: Pablo Maldonado-Hernandez</p>
+          <p>©2021 Pablo Maldonado-Hernandez, U.S.A, Inc</p>
         </div>
-      </form>
     </body>
 </html>

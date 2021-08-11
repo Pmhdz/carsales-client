@@ -48,25 +48,15 @@ const createCar = function (data) {
     method: 'POST',
     data,
     url: config.apiUrl + '/cars',
-    headers: {
-      Authorization: `Bearer ${store.user.token}`
-    }
+    headers: { Authorization: `Bearer ${store.user.token}` }
   })
 }
 
-// Show Car
-
-const readCar = function () {
-  return $.ajax({
-    url: config.apiUrl + '/cars',
-    method: 'GET'
-  })
-}
-
-const readCars = function (data) {
+// Read Car
+const readCars = function () {
   return $.ajax({
     method: 'GET',
-    data,
+    // data,
     url: config.apiUrl + '/cars',
     headers: {
       Authorization: `Bearer ${store.user.token}`
@@ -75,7 +65,7 @@ const readCars = function (data) {
 }
 
 // Update Car
-const updateCar = function (data, id) {
+const updateCar = function (id, data) {
   return $.ajax({
     method: 'PATCH',
     data,
@@ -88,13 +78,11 @@ const updateCar = function (data, id) {
 
 // Delete Car
 const deleteCar = function (id) {
-  console.log(id)
+  // console.log(id)
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/cars/' + id,
-    headers: {
-      Authorization: `Bearer ${store.user.token}`
-    }
+    headers: { Authorization: `Bearer ${store.user.token}` }
   })
 }
 
@@ -104,7 +92,7 @@ module.exports = {
   signOut,
   changePassword,
   createCar,
-  readCar,
+  // readCar,
   readCars,
   // showCars,
   updateCar,

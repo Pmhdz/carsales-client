@@ -49,60 +49,94 @@ const onChangePassword = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  api
-    .changePassword(data)
+  api.changePassword(data)
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordFailure)
 }
+
+// Create Car
 const onCreateCar = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  api
-    .createShoe(data)
-    .then(ui.onCreateShoeSuccess)
-    .catch(ui.onCreateShoeFailure)
+  api.createCar(data)
+    .then(api.readCars)
+    .then(ui.onReadCarsSuccess)
+    .catch(ui.onReadCarsFailure)
+    .then(ui.onCreateCarSuccess)
+    .catch(ui.onCreateCarFailure)
 }
 
+// Read Car
 const onReadCars = function (event) {
   event.preventDefault()
-  api.readShoe.index()
-    .then(ui.onReadShoesSuccess)
-    .catch(ui.onReadShoesFailure)
+  api.readCars()
+    .then(ui.onReadCarsSuccess)
+    .catch(ui.onReadCarsFailure)
 }
 
-const onReadCar = function (event) {
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  api.readShoe(data)
-    .then(ui.onReadShoeSuccess)
-    .catch(ui.onReadShoeFailure)
+// Show Every Car That Is Available
+const showForm = function (event) {
+  const btnId = $(event.target).attr('id')
+  if (btnId === 'create') {
+    $('#create-car').show()
+    $('#read-car').hide()
+    $('#update-car').hide()
+    $('#delete-car').hide()
+  }
+  if (btnId === 'read') {
+    $('#read-car').show()
+    $('#update-car').hide()
+    $('#delete-car').hide()
+    $('#create-car').hide()
+  }
+  if (btnId === 'update') {
+    $('#update-car').show()
+    $('#create-car').hide()
+    $('#delete-car').hide()
+    $('#read-cars').hide()
+  }
+  if (btnId === 'delete') {
+    $('#delete-car').show()
+    $('#read-cars').hide()
+    $('#create-car').hide()
+    $('#update-car').hide()
+  }
 }
 
+// Update Car
 const onUpdateCar = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  const id = data.shoe.id
-  api
-    .updateShoe(data, id)
-    .then(ui.onUpdateShoeSuccess)
-    .catch(ui.onUpdateShoeFailure)
+  console.log(data)
+  const id = data.car.id
+  api.updateCar(id, data)
+    .then(api.readCars)
+    .then(ui.onReadCarsSuccess)
+    .catch(ui.onReadCarsFailure)
+    .then(ui.onUpdateCarSuccess)
+    .catch(ui.onUpdateCarFailure)
 }
 
+// Delete Car
 const onDeleteCar = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  api
-    .deleteShoe(data.shoe.id)
-    .then(ui.onDeleteShoeSuccess)
-    .then(ui.onDeleteShoeFailure)
+  api.deleteCar(data.car.id)
+    .then(api.readCars)
+    .then(ui.onReadCarsSuccess)
+    .catch(ui.onReadCarsFailure)
+    .then(ui.onDeleteCarSuccess)
+    .catch(ui.onDeleteCarFailure)
 }
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onChangePassword,
-  onReadCar,
+  // onReadCar,
   onReadCars,
+  showForm,
   onCreateCar,
   // onShowCars,
   onUpdateCar,
