@@ -24,6 +24,7 @@ const onSignInSuccess = (response) => {
   $('#sign-up').hide()
   $('#sign-out').show()
   $('#change-password').show()
+  $('#read-cars').show()
   $('#find').show()
   $('.btn').show()
 }
@@ -36,7 +37,6 @@ const onSignOutSuccess = () => {
   $('#sign-in').show()
   $('#sign-up').show()
   $('#sign-out').hide()
-  $('#change-password').hide()
   $('#create-car').hide()
   $('#read-cars').hide()
   $('#update-car').hide()
@@ -44,6 +44,7 @@ const onSignOutSuccess = () => {
   $('.btn').hide()
   $('#find').hide()
   $('#car_list').hide()
+  $('#change-password').hide()
 }
 const onSignOutFailure = () => {
   $('#message').text('Sign out failure')
@@ -69,7 +70,7 @@ const onCreateCarFailure = function () {
 
 const onReadCarsSuccess = (response) => {
   const cars = response.cars
-  $('#message').text('Showing the cars has been Success')
+  $('#message').text('Showing the cars has been success!')
   // look through shoes to look at each index
   const carsHtml = cars.map((car) => {
     // we need an HTML String to show ours cars that are available.
@@ -95,7 +96,7 @@ const onReadCarsFailure = function () {
 }
 
 const onUpdateCarSuccess = function (res) {
-  $('#message').text('Your car has been updated')
+  $('#message').text('Your car has been updated!')
   $('#update-car').trigger('reset')
   // console.log(res)
 }
@@ -105,7 +106,7 @@ const onUpdateCarFailure = function () {
 }
 
 const onDeleteCarSuccess = function (res) {
-  $('#message').text('Please enter Car ID')
+  $('#message').text('Car is deleted!')
   $('#delete-car').trigger('reset')
   // console.log(res)
 }

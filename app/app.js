@@ -18,7 +18,7 @@ $(() => {
   // $('#add-car').on('click', carEvents.onAddCar)
   $('#create-car').on('submit', carEvents.onCreateCar)
   //  $('#show-cars').on('click', carEvents.onShowCars)
-  $('#read-car').on('click', carEvents.onReadCars)
+  $('#read-cars').on('click', carEvents.onReadCars)
   $('#update-car').on('submit', carEvents.onUpdateCar)
   // $('#car-update').on('submit', carEvents.onCarUpdate)
 
@@ -27,9 +27,10 @@ $(() => {
 
   // Hide
   $('#sign-out').hide()
-  // $('#change-password').hide()
+  $('#change-password').hide()
   $('#create-car').hide()
-  $('#read-car').hide()
+  $('#find').hide()
+  $('#read-cars').hide()
   $('#update-car').hide()
   $('#delete-car').hide()
   $('.btn').hide()
