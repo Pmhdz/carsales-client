@@ -76,16 +76,35 @@ const onCreateCar = function (event) {
     .catch(ui.onCreateCarFailure)
 }
 
+// Create Check Up
+const onCreateCheck = function (event) {
+  // get info from event and form
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.createCheck(data)
+    // make an api call using AJAX
+    // handle successful api call with .then
+    // handle failed api call with .catch
+    // .then(api.readCars)
+    // .then(ui.onReadCarsSuccess)
+    // .catch(ui.onReadCarsFailure)
+    .then(ui.onCreateCheckSuccess)
+    .catch(ui.onCreateCheckFailure)
+}
+
 // Read Car
 const onReadCars = function (event) {
   // get info from event and form
   event.preventDefault()
-  api.readCars()
+  api
+    .readCars()
     // make an api call using AJAX
     // handle successful api call with .then
     // handle failed api call with .catch
     .then(ui.onReadCarsSuccess)
     .catch(ui.onReadCarsFailure)
+    .then(ui.onCreateCheckSuccess)
+    .catch(ui.onCreateCheckFailure)
 }
 
 // Update Car
@@ -122,11 +141,29 @@ const onDeleteCar = function (event) {
     .catch(ui.onDeleteCarFailure)
 }
 
+// Delete Car
+const onDeleteCheck = function (event) {
+  // get info from event and form
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.deleteCar(data.car.id)
+    // make an api call using AJAX
+    // handle successful api call with .then
+    // handle failed api call with .catch
+    // .then(api.readCars)
+    // .then(ui.onReadCarsSuccess)
+  // .catch(ui.onReadCarsFailure)
+    .then(ui.onDeleteCheckSuccess)
+    .catch(ui.onDeleteCheckFailure)
+}
+
 // Show Every Car That Is Available
 const showForm = function (event) {
   const btnId = $(event.target).attr('id')
+  // const bId = $(event.target).attr('id')
   // === is strict quality
   if (btnId === 'create') {
+  // $('#create-check').show()
     $('#create-car').show()
     $('#read-car').hide()
     $('#update-car').hide()
@@ -137,6 +174,7 @@ const showForm = function (event) {
     $('#update-car').hide()
     $('#delete-car').hide()
     $('#create-car').hide()
+    $('#create-check').show()
   }
   if (btnId === 'update') {
     $('#update-car').show()
@@ -145,12 +183,14 @@ const showForm = function (event) {
     $('#read-cars').hide()
   }
   if (btnId === 'delete') {
+    $('#delete-check').show()
     $('#delete-car').show()
     $('#read-cars').hide()
     $('#create-car').hide()
     $('#update-car').hide()
   }
 }
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -159,8 +199,11 @@ module.exports = {
   // onReadCar,
   onReadCars,
   onCreateCar,
+  onCreateCheck,
   // onShowCars,
   onUpdateCar,
   onDeleteCar,
-  showForm
+  showForm,
+  onDeleteCheck
+  // showCheckForm
 }

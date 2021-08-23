@@ -86,6 +86,26 @@ const deleteCar = function (id) {
   })
 }
 
+// Create Check Up
+const createCheck = function (data) {
+  return $.ajax({
+    method: 'POST',
+    data,
+    url: config.apiUrl + '/checks',
+    headers: { Authorization: `Bearer ${store.user.token}` }
+  })
+}
+
+// Delete Check Up
+const deleteCheck = function (id) {
+  // console.log(id)
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/cars/' + id,
+    headers: { Authorization: `Bearer ${store.user.token}` }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -96,5 +116,7 @@ module.exports = {
   readCars,
   // showCars,
   updateCar,
-  deleteCar
+  deleteCar,
+  createCheck,
+  deleteCheck
 }
