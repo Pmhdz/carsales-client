@@ -85,7 +85,7 @@ const onCreateCheck = function (event) {
     // make an api call using AJAX
     // handle successful api call with .then
     // handle failed api call with .catch
-    // .then(api.readCars)
+    .then(api.readCars)
     // .then(ui.onReadCarsSuccess)
     // .catch(ui.onReadCarsFailure)
     .then(ui.onCreateCheckSuccess)

@@ -19,7 +19,7 @@ $(() => {
   // After Sign Up
   // $('#add-car').on('click', carEvents.onAddCar)
   $('#create-car').on('submit', carEvents.onCreateCar)
-  $('#create-check').on('submit', carEvents.onCreateCheck)
+  $('#create-check').on('submit', checkEvents.onCreateCheck)
   //  $('#show-cars').on('click', carEvents.onShowCars)
   $('#read-cars').on('click', carEvents.onReadCars)
   $('#update-car').on('submit', carEvents.onUpdateCar)
@@ -39,4 +39,5 @@ $(() => {
   $('#delete-car').hide()
   $('.btn').hide()
   // $('#create-check').hide()
+//   $('delete-check').hide()
 })

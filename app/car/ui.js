@@ -70,13 +70,13 @@ const onCreateCarFailure = function () {
 
 const onCreateCheckSuccess = function (res) {
   $('#create').trigger('reset')
-  $('#message').text('Your car has been created!')
+  $('#message').text('Your checkup has been created!')
   // store.car = res.car
   // console.log(res)
 }
 
 const onCreateCheckFailure = function () {
-  $('#message').text('Create car failure.')
+  $('#message').text('Create checkup failure.')
 }
 
 const onReadCarsSuccess = (response) => {
