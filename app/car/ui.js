@@ -68,16 +68,16 @@ const onCreateCarFailure = function () {
   $('#message').text('Create car failure.')
 }
 
-const onCreateCheckSuccess = function (res) {
-  $('#create').trigger('reset')
-  $('#message').text('Your checkup has been created!')
-  // store.car = res.car
-  // console.log(res)
-}
+// const onCreateCheckSuccess = function (res) {
+//   $('#create').trigger('reset')
+//   $('#message').text('Your checkup has been created!')
+//   // store.car = res.car
+//   // console.log(res)
+// }
 
-const onCreateCheckFailure = function () {
-  $('#message').text('Create checkup failure.')
-}
+// const onCreateCheckFailure = function () {
+//   $('#message').text('Create checkup failure.')
+// }
 
 const onReadCarsSuccess = (response) => {
   const cars = response.cars
@@ -93,17 +93,13 @@ const onReadCarsSuccess = (response) => {
       brand: ${car.brand}
       model: ${car.model}
       price: ${car.price}
-      miles: ${car.miles}
-      date: ${car.date}
-      notes: ${car.notes}
-      id: ${car._id}
       </li>
     `
     return htmlString
   })
   // dom tree
   $('#car_list').html(carsHtml)
-  $('#delete-check').show()
+  // $('#delete-check').show()
   $('#delete-car').show()
   $('#update-car').show()
   $('#car_list').show()
@@ -132,15 +128,15 @@ const onDeleteCarFailure = function () {
   $('#message').text('Delete car error')
 }
 
-const onDeleteCheckSuccess = function (res) {
-  $('#message').text('Car is deleted!')
-  $('#delete-check').trigger('reset')
-  // console.log(res)
-}
+// const onDeleteCheckSuccess = function (res) {
+//   $('#message').text('Car is deleted!')
+//   $('#delete-check').trigger('reset')
+//   // console.log(res)
+// }
 
-const onDeleteCheckFailure = function () {
-  $('#message').text('Delete car error')
-}
+// const onDeleteCheckFailure = function () {
+//   $('#message').text('Delete car error')
+// }
 
 module.exports = {
   onSignUpSuccess,
@@ -158,9 +154,9 @@ module.exports = {
   onUpdateCarSuccess,
   onUpdateCarFailure,
   onDeleteCarSuccess,
-  onDeleteCarFailure,
-  onCreateCheckSuccess,
-  onCreateCheckFailure,
-  onDeleteCheckSuccess,
-  onDeleteCheckFailure
+  onDeleteCarFailure
+  // onCreateCheckSuccess,
+  // onCreateCheckFailure,
+  // onDeleteCheckSuccess,
+  // onDeleteCheckFailure
 }
