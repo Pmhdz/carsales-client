@@ -99,7 +99,6 @@ const onReadCarsSuccess = (response) => {
   })
   // dom tree
   $('#car_list').html(carsHtml)
-  // $('#delete-check').show()
   $('#delete-car').show()
   $('#update-car').show()
   $('#car_list').show()
